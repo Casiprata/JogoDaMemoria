@@ -4,6 +4,8 @@ const pauseButton = document.getElementById('pause');
 const resetButton = document.getElementById('reset');
 const difficultySelect = document.getElementById('difficulty');
 const timerElement = document.getElementById('time');
+const scoreList = document.getElementById('score-list');
+const highScoresContainer = document.getElementById('high-scores');
 
 let timer;
 let time = 0;
@@ -71,6 +73,7 @@ function checkMatch() {
         flippedCards = [];
         if (matchedPairs === (parseInt(difficultySelect.value) ** 2) / 2) {
             clearInterval(timer);
+            saveScore(time);
             alert(`Parabéns! Você completou o jogo em ${time} segundos.`);
         }
     } else {
@@ -107,3 +110,22 @@ function resetGame() {
     timerElement.textContent = time;
     createBoard(parseInt(difficultySelect.value));
 }
+
+function saveScore(score) {
+    const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || [];
+    scores.push(score);
+    scores.sort((a, b) => a - b);
+    if (scores.length > 5) {
+        scores.pop();
+    }
+    localStorage.setItem('memoryGameScores', JSON.stringify(scores));
+    displayScores();
+}
+
+function displayScores() {
+    const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || [];
+    scoreList.innerHTML = scores.map(score => `<li>${score} segundos</li>`).join('');
+}
+
+// Inicializar a exibição de pontuações ao carregar a página
+displayScores();

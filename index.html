@@ -8,20 +8,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Jogo da Memória</h1>
-        <div class="controls">
-            <label for="difficulty">Escolha a dificuldade:</label>
-            <select id="difficulty">
-                <option value="4">Fácil (4x4)</option>
-                <option value="6">Médio (6x6)</option>
-                <option value="8">Difícil (8x8)</option>
-            </select>
-            <button id="start">Iniciar Jogo</button>
-            <button id="pause">Pausar</button>
-            <button id="reset">Recomeçar</button>
+        <div class="game-container">
+            <div class="game-controls">
+                <h1>Jogo da Memória</h1>
+                <div class="difficulty">
+                    <label for="difficulty">Escolha a dificuldade:</label>
+                    <select id="difficulty">
+                        <option value="4">Fácil (4x4)</option>
+                        <option value="6">Médio (6x6)</option>
+                        <option value="8">Difícil (8x8)</option>
+                    </select>
+                </div>
+                <button id="start">Iniciar Jogo</button>
+                <button id="pause">Pausar</button>
+                <button id="reset">Recomeçar</button>
+                <div id="timer">Tempo: <span id="time">0</span> segundos</div>
+            </div>
+            <div id="game-board"></div>
         </div>
-        <div id="game-board"></div>
-        <div id="timer">Tempo: <span id="time">0</span> segundos</div>
+        <div class="score-container">
+            <h2>Maiores Pontuações</h2>
+            <ul id="score-list"></ul>
+        </div>
     </div>
     <script src="scripts/script.js"></script>
 </body>

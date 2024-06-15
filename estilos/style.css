@@ -10,6 +10,14 @@ body {
 
 .container {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -30,7 +38,7 @@ h1 {
 .card {
     width: 100px;
     height: 100px;
-    background-color: #1e90ff;
+    background-color: #c089a7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +50,7 @@ h1 {
 }
 
 .card.flip {
-    background-color: #ff1493;
+    background-color: #35202b;
     transform: rotateY(360deg);
 }
 
@@ -53,13 +61,13 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #1e90ff;
+    background-color: #bd68afa6;
     color: white;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #ff1493;
+    background-color: #35202b;
 }
 
 #timer {
@@ -67,3 +75,70 @@ button:hover {
     font-size: 20px;
 }
 
+.score-container {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.score-container h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#score-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#score-list li {
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-container {
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos para a barra lateral */
+.high-scores-container {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.high-scores-container h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .high-scores-container {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
